@@ -40,14 +40,14 @@
                     <a href="#" class="nav-link {{ activeUrl('admin') }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Dashboard
+                            {{ __('Dashboard') }}
                         </p>
                     </a>
                 </li>
                 <li class="nav-header">{{ __('Checlist Groups') }}</li>
 
                 <li class="nav-item menu-open">
-                    <a href="/" class="nav-link {{ activeRoute('admin') }}">
+                    <a href="/" class="nav-link">
 
                         <i class="nav-icon fas fa-layer-group"></i>
                         <p>
@@ -94,13 +94,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('admin.page-settings') }}" class="nav-link {{ activeRoute('admin.page-settings') }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p> {{ __('Page settings') }}</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('admin.website-settings') }}" class="nav-link {{ activeRoute('admin.website-settings') }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     {{ __('Website settings') }}

@@ -2,10 +2,9 @@
 
 namespace App\Http\Livewire\Backend;
 
-use Illuminate\Support\Facades\Artisan;
 use Livewire\Component;
 
-class SettingAside extends Component
+class AsideSetting extends Component
 {
     public $state = [];
 
@@ -17,6 +16,7 @@ class SettingAside extends Component
         }
         $this->state['dark-mode'] = config('adminlte.dark-mode');
         $this->state['layout-navbar-fixed'] = config('adminlte.layout-navbar-fixed');
+        $this->state['layout-footer-fixed'] = config('adminlte.layout-footer-fixed');
     }
     public function toggleSingleSetting($key)
     {
@@ -29,6 +29,6 @@ class SettingAside extends Component
 
     public function render()
     {
-        return view('livewire.backend.setting-aside');
+        return view('livewire.backend.aside-setting');
     }
 }

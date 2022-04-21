@@ -20,10 +20,11 @@
     @stack('meta_tags')
 
     {{-- Title --}}
-    <title>
-        @yield('title_prefix', config('adminlte.title_prefix', ''))
-        @yield('title', config('adminlte.title', 'AdminLTE 3'))
-        @yield('title_postfix', config('adminlte.title_postfix', ''))
+    <title x-ref="title">
+        {{ config('adminlte.title', 'AdminLTE 3') }}
+
+        {{-- @yield('title', config('adminlte.title', 'AdminLTE 3')) --}}
+        {{-- @yield('title_postfix', config('adminlte.title_postfix', '')) --}}
     </title>
 
     {{-- Custom stylesheets (pre AdminLTE) --}}
@@ -49,7 +50,7 @@
 
     {{-- Custom Stylesheets (post AdminLTE) --}}
     @stack('custom_css')
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.2.0/css/flag-icons.min.css" />
     {{-- Favicon --}}
     @if (config('adminlte.use_ico_only'))
         <link rel="shortcut icon" href="{{ asset('favicons/favicon.ico') }}" />
@@ -92,7 +93,7 @@
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">{{ __('Home') }}</a></li>
                                 <li class="breadcrumb-item active">{{ $page }}</li>
                             </ol>
                         </div>
@@ -104,8 +105,8 @@
         </div>
 
         <!-- Control Sidebar -->
-        @include('layouts.partials.admin.aside')
-        @livewire('backend.setting-aside')
+        {{-- @include('layouts.partials.admin.aside') --}}
+        @livewire('backend.aside-setting')
 
         <!-- Main Footer -->
         @include('layouts.partials.admin.footer')
