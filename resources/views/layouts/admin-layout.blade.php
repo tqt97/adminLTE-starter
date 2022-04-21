@@ -75,7 +75,8 @@
 
 </head>
 
-<body class="sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<body
+    class="sidebar-mini {{ config('adminlte.layout-fixed') ? 'layout-fixed' : '' }} {{ config('adminlte.layout-navbar-fixed') ? 'layout-navbar-fixed' : '' }} {{ config('adminlte.dark-mode') ? 'dark-mode' : '' }} {{ config('adminlte.layout-footer-fixed') ? 'layout-footer-fixed' : '' }}">
     <div class="wrapper">
         <!-- Navbar -->
         @include('layouts.partials.admin.navbar')

@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Backend;
 
+use Illuminate\Support\Facades\Artisan;
 use Livewire\Component;
-// use Illuminate\Support\Facades\Cache;
 
 class SettingAside extends Component
 {
@@ -11,10 +11,20 @@ class SettingAside extends Component
 
     public function mount()
     {
-        $sidebarSettings = config('aside');
+        $sidebarSettings = config('adminlte.aside');
         if ($sidebarSettings) {
             $this->state = $sidebarSettings;
         }
+        $this->state['dark-mode'] = config('adminlte.dark-mode');
+        $this->state['layout-navbar-fixed'] = config('adminlte.layout-navbar-fixed');
+    }
+    public function toggleSingleSetting($key)
+    {
+        toggleSettings('adminlte', $key, 'adminlte');
+    }
+    public function toggleAsideSetting($key)
+    {
+        toggleSettings('adminlte.aside', $key, 'adminlte');
     }
 
     public function render()

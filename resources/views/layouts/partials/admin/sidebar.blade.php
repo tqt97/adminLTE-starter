@@ -33,10 +33,11 @@
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column nav-legacy nav-compact nav-child-indent nav-flat"
+            {{-- @dd(config('adminlte.aside')) --}}
+            <ul class="nav nav-pills nav-sidebar flex-column {{ implode(' ', showClassNavbar()) }}"
                 data-widget="treeview" role="menu" data-accordion="false" id="aside_custom">
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">
+                    <a href="#" class="nav-link {{ activeUrl('admin') }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -46,7 +47,7 @@
                 <li class="nav-header">{{ __('Checlist Groups') }}</li>
 
                 <li class="nav-item menu-open">
-                    <a href="/" class="nav-link">
+                    <a href="/" class="nav-link {{ activeRoute('admin') }}">
 
                         <i class="nav-icon fas fa-layer-group"></i>
                         <p>
