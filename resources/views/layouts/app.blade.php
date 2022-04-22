@@ -54,16 +54,19 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <i class="fas fa-globe-asia"></i>
+                                <span
+                                    class="flag-icon flag-icon-{{ Config::get('languages')[App::getLocale()]['flag-icon'] }}">
+                                    {{ Config::get('languages')[App::getLocale()]['display'] }}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}">
-                                    {{ __('Vietnamese') }}
-                                </a>
-                                <a class="dropdown-item" href="{{ route('logout') }}">
-                                    {{ __('English') }}
-                                </a>
+                                @foreach (Config::get('languages') as $lang => $language)
+                                    @if ($lang != App::getLocale())
+                                        <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"><span
+                                                class="flag-icon flag-icon-{{ $language['flag-icon'] }}"></span>
+                                            {{ $language['display'] }}</a>
+                                    @endif
+                                @endforeach
                             </div>
                         </li>
                     </ul>
